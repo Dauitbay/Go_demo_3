@@ -2,8 +2,10 @@ package main
 
 import "fmt"
 
+type bookmarkMap = map[string]string
+
 func main() {
-	bookmarks := map[string]string {}
+	bookmarks := bookmarkMap {}
 	fmt.Println("Bookmark app")
 Menu:
 	for {
@@ -32,7 +34,7 @@ func getMenu() int {
 	return option
 }
 
-func printBookmarks(bookmarks map[string]string) {
+func printBookmarks(bookmarks bookmarkMap) {
 	if len(bookmarks) == 0 {
 		fmt.Println("No bookmarks")
 	}
@@ -41,7 +43,7 @@ func printBookmarks(bookmarks map[string]string) {
 	} 
 }
 
-func addBookmark(bookmarks map[string]string) map[string]string {
+func addBookmark(bookmarks bookmarkMap) bookmarkMap {
 	var newBookmarkKey string
 	var newBookmarkValue string
 	fmt.Print("Enter the name: ")
@@ -52,7 +54,7 @@ func addBookmark(bookmarks map[string]string) map[string]string {
 	return bookmarks
 }
 
-func deleteBookmark(bookmarks map[string]string) map[string]string{
+func deleteBookmark(bookmarks bookmarkMap) bookmarkMap {
 	var bookmarkKeyToDelete string
 	fmt.Print("Enter the name: ")
 	fmt.Scan(&bookmarkKeyToDelete)
