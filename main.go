@@ -14,7 +14,7 @@ Menu:
 		case 1:
 			printBookmarks(bookmarks)
 		case 2:
-			bookmarks = addBookmark(bookmarks)
+			addBookmark(bookmarks)
 		case 3:
 			deleteBookmark(bookmarks)
 		case 4:
@@ -43,7 +43,7 @@ func printBookmarks(bookmarks bookmarkMap) {
 	} 
 }
 
-func addBookmark(bookmarks bookmarkMap) bookmarkMap {
+func addBookmark(bookmarks bookmarkMap) {
 	var newBookmarkKey string
 	var newBookmarkValue string
 	fmt.Print("Enter the name: ")
@@ -51,13 +51,11 @@ func addBookmark(bookmarks bookmarkMap) bookmarkMap {
 	fmt.Print("Enter the link: ")
 	fmt.Scan(&newBookmarkValue)
 	bookmarks[newBookmarkKey] = newBookmarkValue
-	return bookmarks
 }
 
-func deleteBookmark(bookmarks bookmarkMap) bookmarkMap {
+func deleteBookmark(bookmarks bookmarkMap) {
 	var bookmarkKeyToDelete string
 	fmt.Print("Enter the name: ")
 	fmt.Scan(&bookmarkKeyToDelete)
 	delete(bookmarks, bookmarkKeyToDelete)
-	return bookmarks
 }
